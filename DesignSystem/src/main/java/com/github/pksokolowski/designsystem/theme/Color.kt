@@ -1,4 +1,4 @@
-package com.github.pksokolowski.composeplayground.ui.theme
+package com.github.pksokolowski.designsystem.theme
 
 import androidx.compose.ui.graphics.Color
 

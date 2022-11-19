@@ -1,4 +1,4 @@
-package com.github.pksokolowski.composeplayground
+package com.github.pksokolowski.featurea
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,12 +11,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.github.pksokolowski.designsystem.theme.ComposePlaygroundTheme
-import com.github.pksokolowski.designsystem.theme.test
 
-class MainActivity : ComponentActivity() {
+class FeatureAActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        test()
         setContent {
             ComposePlaygroundTheme {
                 // A surface container using the 'background' color from the theme
@@ -41,13 +39,5 @@ fun Greeting(name: String) {
 fun DefaultPreview() {
     ComposePlaygroundTheme {
         Greeting("Android")
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun CustomPreview() {
-    ComposePlaygroundTheme {
-        Greeting("-----")
     }
 }

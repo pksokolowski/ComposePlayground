@@ -1,4 +1,4 @@
-package com.github.pksokolowski.composeplayground.ui.theme
+package com.github.pksokolowski.designsystem.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
@@ -26,6 +26,10 @@ private val LightColorPalette = lightColors(
     onSurface = Color.Black,
     */
 )
+
+fun test(){
+    print("ddesdsed")
+}
 
 @Composable
 fun ComposePlaygroundTheme(

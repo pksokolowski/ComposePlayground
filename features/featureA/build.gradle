@@ -1,14 +1,13 @@
 plugins {
-    id 'com.android.application'
+    id "com.android.library"
     id 'org.jetbrains.kotlin.android'
 }
 
 android {
-    namespace 'com.github.pksokolowski.composeplayground'
+    namespace 'com.github.pksokolowski.featurea'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.github.pksokolowski.composeplayground"
         minSdk 30
         targetSdk 33
         versionCode 1
@@ -25,6 +24,12 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.1.1'
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -47,8 +52,8 @@ android {
 }
 
 dependencies {
+
     implementation project(':DesignSystem')
-    implementation project(':features:featureA')
 
     def nav_version = "2.5.3"
 
