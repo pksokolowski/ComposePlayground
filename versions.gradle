@@ -6,6 +6,7 @@ versions.lifecycle = "2.5.1"
 versions.core_ktx = "1.9.0"
 versions.coroutines = "1.6.4"
 versions.navigation = "2.5.3"
+versions.koin_android= "3.3.0"
 ext.versions = versions
 
 def build_versions = [:]
@@ -31,6 +32,10 @@ lifecycle.compiler = "androidx.lifecycle:lifecycle-compiler:$versions.lifecycle"
 lifecycle.viewmodel_ktx = "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycle"
 lifecycle.livedata_ktx = "androidx.lifecycle:lifecycle-livedata-ktx:$versions.lifecycle"
 deps.lifecycle = lifecycle
+
+def koin = [:]
+koin.compose = "io.insert-koin:koin-androidx-compose:$versions.koin_android"
+deps.koin = koin
 
 deps.navigation = "androidx.navigation:navigation-compose:$versions.navigation"
 
