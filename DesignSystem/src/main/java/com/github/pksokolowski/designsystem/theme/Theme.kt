@@ -27,10 +27,6 @@ private val LightColorPalette = lightColors(
     */
 )
 
-fun test(){
-    print("ddesdsed")
-}
-
 @Composable
 fun ComposePlaygroundTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
