@@ -1,4 +1,4 @@
-package com.github.pksokolowski.composeplayground
+package com.github.pksokolowski.composeplayground.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
