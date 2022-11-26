@@ -1,10 +1,10 @@
 package com.github.pksokolowski.designsystem.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.darkColors
-import androidx.compose.material.lightColors
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 
 private val DarkColorPalette = darkColors(
     primary = Purple200,
@@ -44,4 +44,14 @@ fun ComposePlaygroundTheme(
         shapes = Shapes,
         content = content
     )
+}
+
+@Composable
+fun ComposablePlaygroundSurface(content: @Composable () -> Unit){
+    Surface(
+        modifier = Modifier.fillMaxSize(),
+        color = MaterialTheme.colors.background
+    ) {
+        content()
+    }
 }
