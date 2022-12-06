@@ -50,6 +50,7 @@ dependencies {
     implementation project(':DesignSystem')
     implementation project(':features:featureA')
 
+    implementation deps.coroutines.android
     implementation deps.navigation
     implementation deps.core_ktx
     implementation deps.lifecycle.runtime
