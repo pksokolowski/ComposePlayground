@@ -1,10 +1,7 @@
 package com.github.pksokolowski.composeplayground.presentation
 
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.*
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import com.github.pksokolowski.designsystem.theme.ComposablePlaygroundSurface
@@ -27,8 +24,8 @@ fun MainScreen(
             .launchIn(this)
     }
 
-    val message = viewModel.message.collectAsState()
-    MainScreenContent(message = message.value)
+    val message by viewModel.message.collectAsState()
+    MainScreenContent(message = message)
 }
 
 @Composable
