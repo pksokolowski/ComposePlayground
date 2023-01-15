@@ -1,13 +1,16 @@
-package com.github.pksokolowski.featurea
+package com.github.pksokolowski.featurea.presentation
 
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.github.pksokolowski.designsystem.theme.ComposablePlaygroundSurface
 import com.github.pksokolowski.designsystem.theme.ComposePlaygroundTheme
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun FeatureAMainScreen() {
+fun FeatureAMainScreen(
+    viewModel: FeatureAViewModel = koinViewModel()
+) {
     FeatureAMainScreenContent("kop")
 }
 
