@@ -9,7 +9,7 @@ import androidx.navigation.compose.rememberNavController
 import com.github.pksokolowski.composeplayground.presentation.MainScreen
 import com.github.pksokolowski.composeplayground.presentation.NavDestination
 import com.github.pksokolowski.designsystem.theme.ComposePlaygroundTheme
-import com.github.pksokolowski.featurea.presentation.FeatureAMainScreen
+import com.github.pksokolowski.featurea.presentation.main.FeatureAMainScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
