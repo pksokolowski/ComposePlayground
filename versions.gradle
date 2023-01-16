@@ -43,6 +43,8 @@ deps.activity_compose = "androidx.activity:activity-compose:1.6.1"
 
 deps.compose_ui = "androidx.compose.ui:ui:$versions.compose_ui"
 
+deps.compose_constraint_layout = "androidx.constraintlayout:constraintlayout-compose:1.0.1"
+
 deps.compose_ui_tooling_preview = "androidx.compose.ui:ui-tooling-preview:$versions.compose_ui"
 
 deps.compose_material = "androidx.compose.material:material:$versions.compose_ui"

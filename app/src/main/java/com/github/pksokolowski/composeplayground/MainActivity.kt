@@ -9,6 +9,7 @@ import androidx.navigation.compose.rememberNavController
 import com.github.pksokolowski.composeplayground.presentation.MainScreen
 import com.github.pksokolowski.composeplayground.presentation.NavDestination
 import com.github.pksokolowski.designsystem.theme.ComposePlaygroundTheme
+import com.github.pksokolowski.featurea.presentation.constraints.ConstraintLayoutScreen
 import com.github.pksokolowski.featurea.presentation.main.FeatureAMainScreen
 
 class MainActivity : ComponentActivity() {
@@ -18,9 +19,13 @@ class MainActivity : ComponentActivity() {
             val navController = rememberNavController()
 
             ComposePlaygroundTheme {
-                NavHost(navController = navController, startDestination = "main") {
+                NavHost(
+                    navController = navController,
+                    startDestination = NavDestination.FeatureAConstraintsScreen.path
+                ) {
                     composable(NavDestination.MainScreen.path) { MainScreen(navController) }
                     composable(NavDestination.FeatureAScreen.path) { FeatureAMainScreen() }
+                    composable(NavDestination.FeatureAConstraintsScreen.path) { ConstraintLayoutScreen() }
                 }
             }
         }
