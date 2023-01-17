@@ -13,7 +13,7 @@ class ConstraintsViewModel : ViewModel() {
     val state = _screenState.asStateFlow()
 
     init {
-        val states = listOf(Loaded, SeparatedConstraints, ConstraintsTransition)
+        val states = listOf(ConstraintsTransition, Loaded, SeparatedConstraints)
         var i = 0
         viewModelScope.launch {
             delay(1500)

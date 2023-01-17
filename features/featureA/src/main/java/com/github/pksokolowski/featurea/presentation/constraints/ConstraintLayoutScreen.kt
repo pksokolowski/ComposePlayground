@@ -6,6 +6,7 @@ import androidx.compose.animation.core.*
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.CircularProgressIndicator
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -97,17 +98,27 @@ private fun ConstraintLayoutScreenContent(
                 is ConstraintsTransition -> {
                     val constraintsStart = ConstraintSet {
                         val ball = createRefFor(REF_BALL)
+                        val text = createRefFor(REF_TEXT)
 
                         constrain(ball) {
                             top.linkTo(parent.top)
                             start.linkTo(parent.start)
                         }
+                        constrain(text) {
+                            bottom.linkTo(parent.bottom)
+                            start.linkTo(parent.start)
+                        }
                     }
                     val constraintsEnd = ConstraintSet {
                         val ball = createRefFor(REF_BALL)
+                        val text = createRefFor(REF_TEXT)
 
                         constrain(ball) {
                             bottom.linkTo(parent.bottom)
+                            end.linkTo(parent.end)
+                        }
+                        constrain(text) {
+                            top.linkTo(parent.top)
                             end.linkTo(parent.end)
                         }
                     }
@@ -127,6 +138,10 @@ private fun ConstraintLayoutScreenContent(
                         modifier = Modifier.fillMaxSize(),
                     ) {
                         BasketBall(modifier = Modifier.layoutId(REF_BALL))
+                        Text(
+                            stringResource(id = R.string.accessibility_ball),
+                            modifier = Modifier.layoutId(REF_TEXT)
+                        )
                     }
                 }
             }
@@ -135,6 +150,7 @@ private fun ConstraintLayoutScreenContent(
 }
 
 private const val REF_BALL = "ball"
+private const val REF_TEXT = "text"
 
 @Composable
 private fun BasketBall(modifier: Modifier) {
