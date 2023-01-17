@@ -17,6 +17,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.ConstraintSet
+import androidx.constraintlayout.compose.ExperimentalMotionApi
+import androidx.constraintlayout.compose.MotionLayout
 import com.github.pksokolowski.designsystem.theme.ComposablePlaygroundSurface
 import com.github.pksokolowski.designsystem.theme.ComposePlaygroundTheme
 import com.github.pksokolowski.featurea.R
@@ -31,7 +33,7 @@ fun ConstraintLayoutScreen(
     ConstraintLayoutScreenContent(state = state)
 }
 
-@OptIn(ExperimentalAnimationApi::class)
+@OptIn(ExperimentalAnimationApi::class, ExperimentalMotionApi::class)
 @Composable
 private fun ConstraintLayoutScreenContent(
     state: ConstraintsViewModel.State
@@ -88,6 +90,41 @@ private fun ConstraintLayoutScreenContent(
                     ConstraintLayout(
                         modifier = Modifier.fillMaxSize(),
                         constraintSet = constraints
+                    ) {
+                        BasketBall(modifier = Modifier.layoutId(REF_BALL))
+                    }
+                }
+                is ConstraintsTransition -> {
+                    val constraintsStart = ConstraintSet {
+                        val ball = createRefFor(REF_BALL)
+
+                        constrain(ball) {
+                            top.linkTo(parent.top)
+                            start.linkTo(parent.start)
+                        }
+                    }
+                    val constraintsEnd = ConstraintSet {
+                        val ball = createRefFor(REF_BALL)
+
+                        constrain(ball) {
+                            bottom.linkTo(parent.bottom)
+                            end.linkTo(parent.end)
+                        }
+                    }
+
+                    val transition = rememberInfiniteTransition()
+                    val progress by transition.animateFloat(
+                        initialValue = 0f,
+                        targetValue = 1f,
+                        animationSpec = infiniteRepeatable(
+                            animation = tween(2000),
+                            repeatMode = RepeatMode.Reverse
+                        )
+                    )
+
+                    MotionLayout(
+                        start = constraintsStart, end = constraintsEnd, progress = progress,
+                        modifier = Modifier.fillMaxSize(),
                     ) {
                         BasketBall(modifier = Modifier.layoutId(REF_BALL))
                     }
