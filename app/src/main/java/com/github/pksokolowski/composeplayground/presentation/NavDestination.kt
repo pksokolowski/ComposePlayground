@@ -4,4 +4,5 @@ sealed class NavDestination(val path: String) {
     object MainScreen: NavDestination("main")
     object FeatureAScreen: NavDestination("featureA")
     object FeatureAConstraintsScreen: NavDestination("constraints")
+    object SamplesScreen: NavDestination("samples")
 }
