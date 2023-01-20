@@ -11,3 +11,11 @@ class MotionLayoutWithAnchorSample : Sample {
         Text("kopkop")
     }
 }
+
+class SecondSample: Sample {
+    @Composable
+    override fun Present() {
+        // todo add the actual sample
+        Text("second sample, totally not he same")
+    }
+}

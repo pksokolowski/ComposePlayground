@@ -1,5 +1,11 @@
 package com.github.pksokolowski.composeplayground.samples.setup
 
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.AnimatedContentScope.SlideDirection.Companion.Left
+import androidx.compose.animation.AnimatedContentScope.SlideDirection.Companion.Up
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.with
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -14,18 +20,30 @@ import androidx.compose.ui.unit.dp
 import com.github.pksokolowski.designsystem.theme.ComposablePlaygroundSurface
 import org.koin.androidx.compose.get
 
+@OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun SamplesScreen(
     samples: List<Sample> = get()
 ) {
-    var currentSample: Sample? by remember { mutableStateOf(null) }
+    var currentSample: Sample? by remember { mutableStateOf(samples.getOrNull(0)) }
 
     ComposablePlaygroundSurface {
         Column {
-            Box(
-                modifier = Modifier.fillMaxHeight(0.8f)
-            ) {
-                currentSample?.Present()
+            AnimatedContent(targetState = currentSample,
+                transitionSpec = {
+                    slideIntoContainer(
+                        animationSpec = tween(1000),
+                        towards = Up
+                    ) with slideOutOfContainer(
+                        animationSpec = tween(500),
+                        towards = Left
+                    )
+                }) {
+                Box(
+                    modifier = Modifier.fillMaxHeight(0.8f)
+                ) {
+                    it?.Present()
+                }
             }
 
             LazyColumn(
