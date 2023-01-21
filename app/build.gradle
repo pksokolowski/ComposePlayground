@@ -59,6 +59,7 @@ dependencies {
     implementation deps.compose_ui_tooling_preview
     implementation deps.compose_material
     implementation deps.koin.compose
+    implementation deps.compose_constraint_layout
     testImplementation deps.junit
     androidTestImplementation deps.android_test_ext_junit
     androidTestImplementation deps.espresso
