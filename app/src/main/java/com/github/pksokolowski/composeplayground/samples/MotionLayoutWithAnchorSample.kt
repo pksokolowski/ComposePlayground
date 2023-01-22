@@ -78,8 +78,8 @@ class MotionLayoutWithAnchorSample : Sample {
                         KeyAttributes: [
                           {
                             target: ['ball'],
-                            frames: [40, 50, 60],
-                            translationX: [0, 30, 0],
+                            frames: [40, 60, 80],
+                            translationX: [0, -110, 0],
                             rotationZ: [0, 180, 360],
                           },
                         ]
@@ -95,7 +95,6 @@ class MotionLayoutWithAnchorSample : Sample {
             progress = progress,
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color.Gray)
         ) {
             Box(
                 modifier = Modifier
@@ -104,7 +103,7 @@ class MotionLayoutWithAnchorSample : Sample {
                     .swipeable(
                         state = swipeableState,
                         anchors = anchors,
-                        // resistance = null,
+                        resistance = ResistanceConfig(0.2f, 0.5f, 0.8f),
                         reverseDirection = true,
                         thresholds = { _, _ -> FractionalThreshold(0.3f) },
                         orientation = Orientation.Vertical
@@ -113,7 +112,7 @@ class MotionLayoutWithAnchorSample : Sample {
                         listHeight = size.height.toFloat()
                     }
             ) {
-                Text("box")
+                Text("resizeable box, swipe it up")
 //                items(15) {
 //                    Box(modifier = Modifier.clip(CutCornerShape(8.dp))) {
 //                        Text(text = "item $it")
