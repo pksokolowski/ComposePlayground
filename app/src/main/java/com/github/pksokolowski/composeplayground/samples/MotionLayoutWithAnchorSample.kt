@@ -5,14 +5,21 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.shape.CutCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.*
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.layout.onSizeChanged
+import androidx.compose.ui.platform.rememberNestedScrollInteropConnection
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ExperimentalMotionApi
 import androidx.constraintlayout.compose.MotionLayout
 import androidx.constraintlayout.compose.MotionScene
@@ -25,7 +32,10 @@ import com.github.pksokolowski.featurea.R
  * for details on the syntax.
  */
 class MotionLayoutWithAnchorSample : Sample {
-    @OptIn(ExperimentalMotionApi::class, ExperimentalMaterialApi::class)
+    @OptIn(
+        ExperimentalMotionApi::class, ExperimentalMaterialApi::class,
+        ExperimentalComposeUiApi::class
+    )
     @Composable
     override fun Present() {
         var listHeight by remember { mutableStateOf(1000f) }
@@ -47,9 +57,10 @@ class MotionLayoutWithAnchorSample : Sample {
                     },
                     list: {
                       height: 250,
-                      width: 130,
+                      width: 'spread',
                       bottom: ['parent', 'bottom', 0],
                       start: ['parent', 'start', 0],
+                      end: ['parent', 'end', 0],
                     }
                   },
                   end: {
@@ -63,9 +74,10 @@ class MotionLayoutWithAnchorSample : Sample {
                     },
                     list: {
                       height: 350,
-                      width: 170,
+                      width: 'spread',
                       bottom: ['parent', 'bottom', 0],
                       start: ['parent', 'start', 0],
+                      end: ['parent', 'end', 0],
                     }
                   }
                 },
@@ -112,12 +124,13 @@ class MotionLayoutWithAnchorSample : Sample {
                         listHeight = size.height.toFloat()
                     }
             ) {
-                Text("resizeable box, swipe it up")
-//                items(15) {
-//                    Box(modifier = Modifier.clip(CutCornerShape(8.dp))) {
-//                        Text(text = "item $it")
-//                    }
-//                }
+                LazyColumn {
+                    items(150) {
+                        Box(modifier = Modifier.clip(CutCornerShape(8.dp))) {
+                            Text(text = "item $it")
+                        }
+                    }
+                }
             }
             BasketBall(modifier = Modifier.layoutId(REF_BALL))
             Text(
