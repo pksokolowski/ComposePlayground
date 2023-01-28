@@ -1,4 +1,4 @@
-package com.github.pksokolowski.composeplayground.samples.setup
+package com.github.pksokolowski.composeplayground.samples
 
 import androidx.compose.runtime.Composable
 

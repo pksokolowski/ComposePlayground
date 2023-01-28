@@ -1,4 +1,4 @@
-package com.github.pksokolowski.composeplayground.samples
+package com.github.pksokolowski.composeplayground.samples.motionLayoutSample
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -13,17 +13,15 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.layout.onSizeChanged
-import androidx.compose.ui.platform.rememberNestedScrollInteropConnection
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ExperimentalMotionApi
 import androidx.constraintlayout.compose.MotionLayout
 import androidx.constraintlayout.compose.MotionScene
-import com.github.pksokolowski.composeplayground.samples.setup.Sample
+import com.github.pksokolowski.composeplayground.samples.Sample
 import com.github.pksokolowski.featurea.R
 
 /**

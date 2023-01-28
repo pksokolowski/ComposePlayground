@@ -1,9 +1,9 @@
 package com.github.pksokolowski.composeplayground.di
 
-import com.github.pksokolowski.composeplayground.samples.CounterSample
-import com.github.pksokolowski.composeplayground.samples.MotionLayoutAnchorSample2
-import com.github.pksokolowski.composeplayground.samples.MotionLayoutWithAnchorSample
-import com.github.pksokolowski.composeplayground.samples.setup.Sample
+import com.github.pksokolowski.composeplayground.samples.counterSample.CounterSample
+import com.github.pksokolowski.composeplayground.samples.motionLayoutSample2.MotionLayoutAnchorSample2
+import com.github.pksokolowski.composeplayground.samples.motionLayoutSample.MotionLayoutWithAnchorSample
+import com.github.pksokolowski.composeplayground.samples.Sample
 import org.koin.dsl.bind
 import org.koin.dsl.module
 

@@ -17,6 +17,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.github.pksokolowski.composeplayground.samples.Sample
 import com.github.pksokolowski.designsystem.theme.ComposablePlaygroundSurface
 import org.koin.androidx.compose.get
 
