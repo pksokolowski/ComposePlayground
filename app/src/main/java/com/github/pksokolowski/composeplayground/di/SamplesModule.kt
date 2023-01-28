@@ -1,5 +1,6 @@
 package com.github.pksokolowski.composeplayground.di
 
+import com.github.pksokolowski.composeplayground.samples.CounterSample
 import com.github.pksokolowski.composeplayground.samples.MotionLayoutAnchorSample2
 import com.github.pksokolowski.composeplayground.samples.MotionLayoutWithAnchorSample
 import com.github.pksokolowski.composeplayground.samples.setup.Sample
@@ -11,4 +12,5 @@ val samplesModule = module {
 
     factory { MotionLayoutWithAnchorSample() } bind Sample::class
     factory { MotionLayoutAnchorSample2() } bind Sample::class
+    factory { CounterSample() } bind Sample::class
 }
