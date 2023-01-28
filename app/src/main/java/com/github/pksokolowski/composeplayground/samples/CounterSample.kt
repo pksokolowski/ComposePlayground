@@ -36,6 +36,14 @@ class CounterSample : Sample {
                     Text("-")
                 }
             }
+            Row(horizontalArrangement = Arrangement.Center, modifier = Modifier.fillMaxWidth()) {
+                Button(onClick = { count *= 10 }) {
+                    Text("*10")
+                }
+                Button(onClick = { count /= 10 }) {
+                    Text("/10")
+                }
+            }
         }
     }
 }
@@ -82,7 +90,8 @@ private fun AnimatedDigits(
     }
 }
 
-private const val MAX_INT_DIGITS_LEN = Int.MAX_VALUE.toString().length
+// adding one for the negative number representations
+private const val MAX_INT_DIGITS_LEN = Int.MAX_VALUE.toString().length + 1
 private const val EMPTY_CHAR_MARKER = '_'
 
 private fun Int.toDigitsString(): String {
