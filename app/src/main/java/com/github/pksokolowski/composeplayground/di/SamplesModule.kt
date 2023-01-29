@@ -4,6 +4,7 @@ import com.github.pksokolowski.composeplayground.samples.counterSample.CounterSa
 import com.github.pksokolowski.composeplayground.samples.motionLayoutSample2.MotionLayoutAnchorSample2
 import com.github.pksokolowski.composeplayground.samples.motionLayoutSample.MotionLayoutWithAnchorSample
 import com.github.pksokolowski.composeplayground.samples.Sample
+import com.github.pksokolowski.composeplayground.samples.animatedCharacters.AnimatedCharactersSample
 import org.koin.dsl.bind
 import org.koin.dsl.module
 
@@ -13,4 +14,5 @@ val samplesModule = module {
     factory { MotionLayoutWithAnchorSample() } bind Sample::class
     factory { MotionLayoutAnchorSample2() } bind Sample::class
     factory { CounterSample() } bind Sample::class
+    factory { AnimatedCharactersSample() } bind Sample::class
 }
