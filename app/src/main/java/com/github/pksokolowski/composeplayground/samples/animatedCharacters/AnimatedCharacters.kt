@@ -24,6 +24,7 @@ import kotlin.math.max
 @Composable
 fun AnimatedCharacters(
     value: String,
+    capacity: Int,
     modifier: Modifier = Modifier,
     color: Color = Color.Unspecified,
     fontSize: TextUnit = TextUnit.Unspecified,
@@ -40,8 +41,8 @@ fun AnimatedCharacters(
     onTextLayout: (TextLayoutResult) -> Unit = {},
     style: TextStyle = LocalTextStyle.current
 ) {
-    var characters by remember { mutableStateOf(generateCharStateList(value)) }
-    LaunchedEffect(value) { characters = generateCharStateList(value, characters) }
+    var characters by remember { mutableStateOf(generateCharStateList(capacity, value)) }
+    LaunchedEffect(value) { characters = generateCharStateList(capacity, value) }
 
     Row(
         horizontalArrangement = Arrangement.Center,
@@ -81,13 +82,11 @@ fun AnimatedCharacters(
 }
 
 private fun generateCharStateList(
+    capacity: Int,
     newVal: String,
-    oldState: List<Char?> = newVal.toList()
 ): List<Char?> {
     val naiveState = newVal.toList()
-
-    val largerLen = max(naiveState.size, oldState.size)
-    val output = List(largerLen) {
+    val output = List(capacity) {
         val c = if (it < naiveState.size) naiveState[it] else null
         c
     }
