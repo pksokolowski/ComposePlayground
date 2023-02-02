@@ -9,20 +9,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.github.pksokolowski.designsystem.theme.ComposablePlaygroundSurface
 import com.github.pksokolowski.designsystem.theme.ComposePlaygroundTheme
 import com.github.pksokolowski.featurea.presentation.animation.AnimationsScreen
-import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun FeatureAMainScreen(
-    viewModel: FeatureAViewModel = koinViewModel()
+    message: String,
 ) {
-    FeatureAMainScreenContent("kop")
-}
-
-@Composable
-private fun FeatureAMainScreenContent(title: String) {
     ComposablePlaygroundSurface {
         Column(modifier = Modifier.fillMaxSize()) {
-            Text(text = "Important message is: $title")
+            Text(text = "Important message is: $message")
             AnimationsScreen()
         }
     }
@@ -32,7 +26,7 @@ private fun FeatureAMainScreenContent(title: String) {
 @Composable
 private fun DefaultPreview() {
     ComposePlaygroundTheme {
-        FeatureAMainScreenContent("Processing")
+        FeatureAMainScreen(message = "Processing")
     }
 }
 
@@ -40,6 +34,6 @@ private fun DefaultPreview() {
 @Composable
 private fun DarkPreview() {
     ComposePlaygroundTheme(darkTheme = true) {
-        FeatureAMainScreenContent("Processing")
+        FeatureAMainScreen(message = "Processing")
     }
 }
