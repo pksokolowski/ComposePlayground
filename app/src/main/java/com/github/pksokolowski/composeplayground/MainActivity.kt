@@ -23,7 +23,7 @@ class MainActivity : ComponentActivity() {
             ComposePlaygroundTheme {
                 NavHost(
                     navController = navController,
-                    startDestination = NavDestination.MainScreen.path
+                    startDestination = NavDestination.SamplesScreen.path
                 ) {
                     composable(NavDestination.MainScreen.path) { MainScreen(navController) }
                     featureAScreen()
