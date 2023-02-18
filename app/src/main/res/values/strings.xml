@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ComposePlayground</string>
+    <string name="scaffold_screen_1_title">Scaffold screen 1</string>
+    <string name="scaffold_screen_2_title">Scaffold screen 2</string>
 </resources>
