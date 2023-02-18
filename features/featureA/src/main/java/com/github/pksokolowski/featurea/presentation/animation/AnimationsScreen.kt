@@ -1,5 +1,6 @@
 package com.github.pksokolowski.featurea.presentation.animation
 
+import android.content.res.Configuration
 import androidx.compose.animation.*
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -87,6 +88,10 @@ fun regularProductsPreview() {
 }
 
 @Preview
+@Preview(
+    name = "preview2, within the same function",
+    uiMode = Configuration.UI_MODE_NIGHT_YES,
+)
 @Composable
 fun alternativeProductsPreview() {
     ComposePlaygroundTheme {
